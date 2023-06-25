@@ -72,14 +72,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: mbamba210/IICS_CICD_PIPELINE_CODE
+          repository: mbamba210/IICS
           ref: UAT
           token: ${{ secrets.GH_TOKEN }}
-          path: IICS_CICD_PIPELINE_CODE
+          path: IICS
 
       - uses: actions/checkout@v3
         with:
-          path: iics-promotion-pipeline
+          path: IICS
 
       # Install python and dependent modules
       - uses: actions/setup-python@v3
@@ -95,10 +95,10 @@ jobs:
         run: git config --global user.email "mbamba@informatica.com"; git config --global user.name "Marcel BAMBA"
 
       - name: Commit changes to UAT
-        run: cd ./IICS_CICD_PIPELINE_CODE; git fetch --all; git cherry-pick --strategy=recursive -X theirs ${COMMIT_HASH}; git push
+        run: cd ./IICS; git fetch --all; git cherry-pick --strategy=recursive -X theirs ${COMMIT_HASH}; git push
 
       - name: Get latest UAT commit hash
-        run: cd ./IICS_CICD_PIPELINE_CODE; git pull; echo "UAT_COMMIT_HASH=$(git log -1 --pretty=format:%H)" >> $GITHUB_ENV
+        run: cd ./IICS; git pull; echo "UAT_COMMIT_HASH=$(git log -1 --pretty=format:%H)" >> $GITHUB_ENV
       
       - name: Login to UAT
         run: |
