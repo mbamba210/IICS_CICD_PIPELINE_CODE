@@ -72,10 +72,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: tjohnsoninformatica/IICS-CDP-CICD-demo
+          repository: mbamba210/IICS_CICD_PIPELINE_CODE
           ref: UAT
           token: ${{ secrets.GH_TOKEN }}
-          path: IICS-CDP-CICD-demo
+          path: IICS_CICD_PIPELINE_CODE
 
       - uses: actions/checkout@v3
         with:
@@ -92,13 +92,13 @@ jobs:
             pip install requests
 
       - name: Set default username
-        run: git config --global user.email "bbird@informatica.com"; git config --global user.name "Brandon Bird"
+        run: git config --global user.email "mbamba@informatica.com"; git config --global user.name "Marcel BAMBA"
 
       - name: Commit changes to UAT
-        run: cd ./IICS-CDP-CICD-demo; git fetch --all; git cherry-pick --strategy=recursive -X theirs ${COMMIT_HASH}; git push
+        run: cd ./IICS_CICD_PIPELINE_CODE; git fetch --all; git cherry-pick --strategy=recursive -X theirs ${COMMIT_HASH}; git push
 
       - name: Get latest UAT commit hash
-        run: cd ./IICS-CDP-CICD-demo; git pull; echo "UAT_COMMIT_HASH=$(git log -1 --pretty=format:%H)" >> $GITHUB_ENV
+        run: cd ./IICS_CICD_PIPELINE_CODE; git pull; echo "UAT_COMMIT_HASH=$(git log -1 --pretty=format:%H)" >> $GITHUB_ENV
       
       - name: Login to UAT
         run: |
