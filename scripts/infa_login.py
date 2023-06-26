@@ -20,6 +20,7 @@ print(UAT_PASSWORD)
 URL = "https://dm-em.informaticacloud.com/saas/public/core/v3/login"
 BODY = {"username": USERNAME,"password": PASSWORD}
 print(BODY)
+print(URL)
 r = requests.post(url = URL, json = BODY)
 print(r)
 
