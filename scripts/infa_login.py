@@ -26,7 +26,7 @@ if r.status_code != 200:
 UAT_BODY = BODY = {"username": UAT_USERNAME,"password": UAT_PASSWORD}
 
 u = requests.post(url = URL, json = BODY)
-printl('UUUUUUUUUUUUUUUUU : ' + u)
+print('UUUUUUUUUUUUUUUUU : ' + u)
 if u.status_code != 200:
     print("Caught exception: " + r.text)
 
