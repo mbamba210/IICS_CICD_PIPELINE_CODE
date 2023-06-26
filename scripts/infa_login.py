@@ -14,7 +14,7 @@ PASSWORD = os.environ['IICS_PASSWORD']
 
 UAT_USERNAME = os.environ['UAT_IICS_USERNAME']
 UAT_PASSWORD = os.environ['UAT_IICS_PASSWORD']
-
+print(os.environ['UAT_IICS_USERNAME'])
 URL = "https://dm-em.informaticacloud.com/saas/public/core/v3/login"
 BODY = {"username": USERNAME,"password": PASSWORD}
 
