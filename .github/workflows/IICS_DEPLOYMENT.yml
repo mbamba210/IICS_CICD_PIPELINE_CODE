@@ -95,7 +95,7 @@ jobs:
         run: git config --global user.email "mbamba@informatica.com"; git config --global user.name "Marcel BAMBA"
 
       - name: Commit changes to UAT
-      echo ${COMMIT_HASH}
+      - echo "GET COMMI_HAST VALUE##################### : ${COMMIT_HASH}"
         run: cd ./IICS; git fetch --all; git cherry-pick --strategy=recursive -X theirs ${COMMIT_HASH}; git push
 
       - name: Get latest UAT commit hash
