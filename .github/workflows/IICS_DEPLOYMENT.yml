@@ -25,6 +25,7 @@ env:
 
   UAT_IICS_USERNAME: ${{ secrets.UAT_IICS_USERNAME }}
   UAT_IICS_PASSWORD: ${{ secrets.UAT_IICS_PASSWORD }}
+  WORKSPACE: ${{ github.workspace }}
 
   # This is overriding until we connect the repository with a workflow_dispatch
 
@@ -95,7 +96,7 @@ jobs:
         run: git config --global user.email "mbamba@informatica.com"; git config --global user.name "Marcel BAMBA"
 
       - name: Commit changes to UAT
-        run: cd ./IICS; git fetch --all; git cherry-pick --strategy=recursive -X theirs ${COMMIT_HASH}; git push
+        run: cd ${{ WORKSPACE }}/IICS; git fetch --all; git cherry-pick --strategy=recursive -X theirs ${COMMIT_HASH}; git push
 
       - name: Get latest UAT commit hash
         run: cd ./IICS; git pull; echo "UAT_COMMIT_HASH=$(git log -1 --pretty=format:%H)" >> $GITHUB_ENV
