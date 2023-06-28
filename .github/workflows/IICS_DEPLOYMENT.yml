@@ -25,7 +25,6 @@ env:
 
   UAT_IICS_USERNAME: ${{ secrets.UAT_IICS_USERNAME }}
   UAT_IICS_PASSWORD: ${{ secrets.UAT_IICS_PASSWORD }}
-  WORKSPACE: ${{ github.workspace }}
 
   # This is overriding until we connect the repository with a workflow_dispatch
 
